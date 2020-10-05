@@ -65,7 +65,7 @@ public class ListaProdutos extends HttpServlet {
                 Statement stm = conex.createStatement();
                 ResultSet rs = stm.executeQuery(SQL);
                 
-                out.println("<table width = '00%'>");
+                out.println("<table width = '50%'>");
                 out.println("<tr bgcolor = 'blue'style='text-align:center'\">");
                 out.println("<td><font color='white'>ID</font></td>");
                 out.println("<td><font color='white'>Título</font></td>");
