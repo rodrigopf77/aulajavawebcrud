@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,55 +17,31 @@ import principal.Produto;
 @WebServlet(name = "ServletProduto", urlPatterns = {"/ServletProduto"})
 public class ServletProduto extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response){
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) {
         
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
-        System.out.println("Deu certo!");
-        
-        String p = request.getParameter("txtProduto");
-        String d = request.getParameter("txtDescricao");
-        
-        Produto produto = new Produto(p, d);
-              
-        
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
+        PrintWriter out = null;
+
+        try {
+            out = response.getWriter();
+            out.println("Produto cadastrado com sucesso!");
+            String p = request.getParameter("txtProduto");
+            String d = request.getParameter("txtDescricao");
+
+            Produto produto = new Produto(p, d);
+
+        } catch (IOException ex) {
+            out.println("Erro ao cadastrar produto: " + ex.getMessage());
+        }
+        response.sendRedirect("http://localhost:8080/AtividadeCrudWeb/ListaProdutos");
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
     @Override
     public String getServletInfo() {
         return "Short description";

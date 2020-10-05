@@ -10,7 +10,9 @@ public class Produto {
     
     ProdutoCrud crud = new ProdutoCrud();
 
-    
+    public Produto() {
+    }
+
     public Produto(String nome, String descricao) {
         this.nome = nome;
         this.descricao = descricao;
@@ -21,6 +23,10 @@ public class Produto {
         } catch (SQLException ex) {
             System.out.println("Erro de SQL: " + ex.getMessage());
         }
+    }
+    
+    public void editarProduto(int id){
+        crud.atualizarProduto(id);
     }
 
     public String getNome() {
