@@ -32,6 +32,9 @@ public class ServletProduto extends HttpServlet {
             out.println("Produto cadastrado com sucesso!");
             String p = request.getParameter("txtProduto");
             String d = request.getParameter("txtDescricao");
+            
+            System.out.println("Servlet: " + p);
+            System.out.println("Servlet: " + d);
 
             Produto produto = new Produto(p, d);
 

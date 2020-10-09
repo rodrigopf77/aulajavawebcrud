@@ -1,6 +1,6 @@
 package principal;
 
-import java.sql.SQLException;
+
 import principal.crud.ProdutoCrud;
 
 public class Produto {
@@ -16,12 +16,14 @@ public class Produto {
     public Produto(String nome, String descricao) {
         this.nome = nome;
         this.descricao = descricao;
+        
+        System.out.println("Classe Produto: " + this.nome);
+        System.out.println("Classe Produto: " + this.descricao);
+        
         try {
             crud.criarProduto(this);
         } catch (ClassNotFoundException ex) {
             System.out.println("Classe de conexão não encontrada: " + ex.getMessage());
-        } catch (SQLException ex) {
-            System.out.println("Erro de SQL: " + ex.getMessage());
         }
     }
     

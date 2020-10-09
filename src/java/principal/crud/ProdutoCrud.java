@@ -19,12 +19,15 @@ public class ProdutoCrud {
 
     Scanner sc = new Scanner(System.in);
 
-    public void criarProduto(Produto p) throws ClassNotFoundException, SQLException {
+    public void criarProduto(Produto p) throws ClassNotFoundException{
 
         ConexaoBD conexao = new ConexaoBD();
         Connection conex = conexao.conexao();
         PreparedStatement insereBD = null;
         String sql = "INSERT INTO produto(nome, descricao) values(?, ?)";
+        
+        System.out.println("ProdutoCrud: " + p.getNome());
+        System.out.println("ProdutoCrud: " + p.getDescricao());
 
         try {
             insereBD = conex.prepareStatement(sql);
@@ -41,7 +44,7 @@ public class ProdutoCrud {
                 insereBD.close();
                 conex.close();
                 System.out.println("Conexão encerrada com sucesso!");
-            } catch (Throwable e) {
+            } catch (Exception e) {
                 System.out.println("Erro ao fechar operações de inserção. Mensagem: "
                         + e.getMessage());
             }

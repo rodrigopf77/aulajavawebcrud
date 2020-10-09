@@ -16,11 +16,7 @@
         <h1>CADASTRO DE PRODUTO</h1>
         <hr>
         
-        <%
-            if (request.getParameter("msg") != null) {
-                out.println("Cadastrado com sucesso.");
-            }
-        %>
+
         <form method="POST" action="ServletProduto">
             Produto:<br>
             <input type="text" name="txtProduto"> <br>
