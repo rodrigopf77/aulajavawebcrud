@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class ConexaoBD {
 
     String driver = "org.postgresql.Driver";
-    final String url = "jdbc:postgresql://localhost:5432/aulajavaweb";
+    final String url = "jdbc:postgresql://localhost:5432/estoque";
     final String usuario = "postgres";
     final String senha = "root";
     Connection conexao;

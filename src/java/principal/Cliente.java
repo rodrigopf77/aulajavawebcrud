@@ -1,5 +1,7 @@
 package principal;
 
+import java.text.ParseException;
+import java.time.LocalDate;
 import principal.crud.ClienteCrud;
 
 public class Cliente extends Pessoa {
@@ -8,8 +10,8 @@ public class Cliente extends Pessoa {
     
     ClienteCrud crud = new ClienteCrud();
 
-    public Cliente(String nome, String email, String cpf) {
-        super(nome, email, cpf);
+    public Cliente(String nome, String email, String cpf, String dataNascimento) throws ParseException {
+        super(nome, email, cpf, dataNascimento);
         
         try {
             crud.criarCliente(this);

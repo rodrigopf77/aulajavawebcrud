@@ -23,6 +23,9 @@
             CPF: <br>
             <input type="text" name="txtCpf"> <br>
             
+            Data de Nascimento: <br>
+            <input type="text" name="txtDataNascimento"> <br>
+            
             <input type="submit" value="Cadastrar">
         </form>
         

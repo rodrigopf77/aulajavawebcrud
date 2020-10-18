@@ -21,8 +21,9 @@
             Produto:<br>
             <input type="text" name="txtProduto"> <br>
             Descrição: <br>
-            <input type="text" name="txtDescricao"> <br> <input
-                type="submit" value="Cadastrar">
+            <input type="text" name="txtDescricao"> <br>
+            
+            <input type="submit" value="Cadastrar">
         </form>
     </body>
 </html>
